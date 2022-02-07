@@ -1,0 +1,26 @@
+body {
+  overflow: hidden;
+}
+#board {
+  width: 99vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.BoxDead,
+.BoxAlive {
+  margin: none;
+  /* border: 1px solid #000000; */
+  width: 10px;
+  height: 10px;
+}
+
+.BoxDead {
+  background-color: white;
+}
+.BoxAlive {
+  background-color: red;
+}
