@@ -9,7 +9,20 @@ body {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-
+.control {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(235, 235, 235);
+}
+.control > button {
+  border: none;
+  margin: 1%;
+  border-radius: 5px;
+  background-color: #ffd54f;
+  padding: 1vh 1vw;
+}
 .BoxDead,
 .BoxAlive {
   margin: none;

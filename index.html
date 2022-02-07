@@ -9,7 +9,13 @@
 
 </head>
 <body>
-  <body onload="init()">
+  <body>
+    <div class="control ">
+      <button onclick="init()">Start</button>
+      <button onclick="speed(-25)">Speed up -25ms</button>
+      <button onclick="speed(25)">Slow down +25ms</button>
+      
+    </div>
       <div id="board">
         <table id="table"></table>
       </div>

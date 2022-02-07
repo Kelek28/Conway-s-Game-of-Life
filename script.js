@@ -2,27 +2,36 @@ let width = window.screen.width;
 let height = window.screen.height;
 let rowNumber = Math.floor((height - 10) / 25);
 let columnNumber = Math.floor((width - 10) / 10);
-// var Board = Array(rowNumber).fill(Array(columnNumber))
+var delay = 250;
 var Board = [];
-for (let row = 0; row < rowNumber; row++) {
-    Board.push([])
-    for (let column = 0; column < columnNumber; column++) {
-        Board[row].push(false)
-    }
-}
-console.log(Board)
-let x = 0;
-while (x < 500) {
-    let a = Math.floor(Math.random() * rowNumber)
-    let b = Math.floor(Math.random() * columnNumber)
-    if (!Board[a][b]) {
-        Board[a][b] = true
-        x++;
+
+function speed(x) {
+    if (delay + x > 0) {
+        delay += x
     }
 }
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-} function init() {
+}
+function init() {
+    Board = []
+    delay = 250
+    for (let row = 0; row < rowNumber; row++) {
+        Board.push([])
+        for (let column = 0; column < columnNumber; column++) {
+            Board[row].push(false)
+        }
+    }
+
+    let x = 0;
+    while (x < rowNumber * columnNumber * 0.1) {
+        let a = Math.floor(Math.random() * rowNumber)
+        let b = Math.floor(Math.random() * columnNumber)
+        if (!Board[a][b]) {
+            Board[a][b] = true
+            x++;
+        }
+    }
     requestAnimationFrame(renderBoard
     )
 }
@@ -48,7 +57,7 @@ function renderBoard() {
             row.appendChild(child)
         }
     }
-    sleep(50).then(() => requestAnimationFrame(renderBoard))
+    sleep(delay).then(() => requestAnimationFrame(renderBoard))
 
 }
 
